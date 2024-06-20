@@ -1,0 +1,43 @@
+<div class="px-10 pt-10">
+    <h1 class="text-3xl font-bold text-highlight mb-6">Current Strategy: MACD + RVI + AO <span class="cursor-pointer text-sm align-top" (click)="openModal()">&#9432;</span></h1>
+</div>
+<div *ngIf="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="backdrop-blur-sm bg-opacity-50 fixed inset-0"></div>
+    <div class="bg-white text-cool-gray-800 p-10 rounded-lg shadow-lg max-w-3xl w-full z-10">
+        <h2 class="text-2xl font-bold mb-4">Trading Strategy Details</h2>
+        <p class="text-lg mb-3">
+            The <span class="font-semibold">MACD (Moving Average Convergence Divergence)</span> is a trend-following momentum indicator that shows the relationship between two moving averages of a security’s price. It is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.
+        </p>
+        <p class="text-lg mb-3">
+            The <span class="font-semibold">RVI (Relative Vigor Index)</span> compares the closing price to the price range and provides a predictive indicator of market direction. It is often used in conjunction with the MACD to confirm trends and reversals.
+        </p>
+        <p class="text-lg mb-3">
+            The <span class="font-semibold">AO (Awesome Oscillator)</span> is a momentum indicator that uses the difference between the 34-period and 5-period simple moving averages of the bar’s midpoints (H+L)/2. It helps to identify market momentum and potential reversal points.
+        </p>
+        <p class="text-lg mb-3">
+            Together, these indicators provide a comprehensive view of market trends and potential turning points, making them popular among traders for developing robust trading strategies.
+        </p>
+        <p class="text-lg mb-3">
+            <strong class="font-semibold">Trading Rules:</strong> The MACD and the RVI both must produce a bullish signal within 5 periods of each other to enter a long position. The AO must also be bullish to enter a long position. Conversely, if the MACD and the RVI produce a bearish signal within 5 periods of each other, and the AO produces a bearish signal, a short position should be entered.
+        </p>
+        <button class="mt-4 px-4 py-2 bg-highlight text-white rounded" (click)="closeModal()">Close</button>
+    </div>
+</div>
+<div class="p-10">
+    <div class="grid grid-cols-3 bg-background gap-2.5 p-2.5">
+      <div class="col-span-3 bg-transparent p-2.5 rounded-lg">
+        <plotly-plot [data]="graph_price.data" [layout]="graph_price.layout" [config]="{displayModeBar: false, plot_bgcolor: '#333', paper_bgcolor: '#333', template: 'plotly_dark'}"></plotly-plot>
+      </div>
+      <div *ngFor="let graph of graph_indicators" class="bg-transparent p-2.5 rounded-lg">
+        <plotly-plot [data]="graph.data" [layout]="graph.layout" [config]="{displayModeBar: false, plot_bgcolor: '#333', paper_bgcolor: '#333', template: 'plotly_dark'}"></plotly-plot>
+      </div>
+    </div>
+</div>
+<div>
+<!-- Extensive Placeholder Content -->
+<!-- This section is reserved for a significant amount of future content. -->
+<!-- Detailed plans include advanced data visualizations and interactive market analytics features. -->
+<!-- Anticipated enhancements may incorporate real-time trading alerts, AI-driven market predictions, and comprehensive portfolio management tools. -->
+<!-- Further expansions could also integrate social trading elements, allowing users to follow and replicate the trades of leading investors. -->
+<!-- This space will potentially host a dynamic and modular dashboard designed to adapt to user preferences and market conditions. -->
+</div>
